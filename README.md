@@ -1,17 +1,18 @@
 # Deep Lesion Tracker
 
 ![Demo](./demo.gif) 
+
+## Introduction  
+
+Monitoring treatment response in longitudinal studies plays an important role in clinical practice. Accurately identifying lesions across serial imaging follow-up is the core to the monitoring procedure. Typically this incorporates both image and anatomical considerations. However, matching lesions manually is labor-intensive and time-consuming. In this project, we release our lesion tracking benchmark -- deep longitudinal study (DLS) dataset, consisting of 3891 lesion pairs from the public [DeepLesion database](https://nihcc.app.box.com/v/DeepLesion). With DLS, we develop our deep lesion tracker (DLT) to efficiently and accurately track lesions in longitudinal studies. 
+
 > [**Deep Lesion Tracker: Monitoring Lesions in 4D Longitudinal Imaging Studies**](https://arxiv.org/abs/2012.04872)  
 > Jinzheng Cai, Youbao Tang, Ke Yan, Adam P. Harrison, Jing Xiao, Gijin Lin, Le Lu  
 > *will show in [CVPR2021](http://cvpr2021.thecvf.com/)*  
 
 Contact: [caijinzhengcn@gmail.com](mailto:caijinzhengcn@gmail.com) from **PAII Inc**. Any questions or discussions are welcomed! 
 
-## Abstract  
-
-Monitoring treatment response in longitudinal studies plays an important role in clinical practice. Accurately identifying lesions across serial imaging follow-up is the core to the monitoring procedure. Typically this incorporates both image and anatomical considerations. However, matching lesions manually is labor-intensive and time-consuming. In this work, we present deep lesion tracker (DLT), a deep learning approach that uses both appearance- and anatomical-based signals. To incorporate anatomical constraints, we propose an anatomical signal encoder, which prevents lesions being matched with visually similar but spurious regions. In addition, we present a new formulation for Siamese networks that avoids the heavy computational loads of 3D cross-correlation. To present our network with greater varieties of images, we also propose a self-supervised learning (SSL) strategy to train trackers with unpaired images, overcoming barriers to data collection. To train and evaluate our tracker, we introduce and release the first lesion tracking benchmark, consisting of $3891$ lesion pairs from the public DeepLesion database. The proposed method, DLT, locates lesion centers with a mean error distance of 7$mm$. This is 5\% better than a leading registration algorithm while running $14$ times faster on whole CT volumes. We demonstrate even greater improvements over detector or similarity-learning alternatives. DLT also generalizes well on an external clinical test set of $100$ longitudinal studies, achieving 88\% accuracy. Finally, we plug DLT into an automatic tumor monitoring workflow where it leads to an accuracy of 85\% in assessing lesion treatment responses, which is only 0.46\% lower than the accuracy of manual inputs.  
-
-## USE DLT
+## USE DLS
 
 1. **Annotation:** you can find annotation files in the [data](./data) folder. The structure of annotation is defined as:
     ``` python 
@@ -49,7 +50,7 @@ Monitoring treatment response in longitudinal studies plays an important role in
     ```
     It generates CT subvolumes named in the format of *PatientID_StudyID_ScanID_StartingSliceID_EndingSliceID.nii.gz*, for example "001344_01_01_012-024.nii.gz".
 
-3. **Evaluation:** you can find example evaluation code:  
+3. **Evaluation:** find example evaluation code:  
     ```bash
     python evaluation.py
     ```
